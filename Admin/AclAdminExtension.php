@@ -71,6 +71,7 @@ class AclAdminExtension extends AdminExtension
             !$admin->isAclEnabled()
             || !$this->securityContext->getToken()
             || $admin->isGranted(sprintf($admin->getSecurityHandler()->getBaseRole($admin), 'ADMIN'))
+            || $admin->isGranted(sprintf($admin->getSecurityHandler()->getBaseRole($admin), 'VIEW'))
         ) {
             return;
         }
